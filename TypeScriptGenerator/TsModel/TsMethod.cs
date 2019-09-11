@@ -5,7 +5,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    public class TsMethod: IWritable
+    internal sealed class TsMethod: IWritable
     {
         public TsMethod()
         {

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +22,13 @@ namespace TypeScriptGenerator.Writer
         string ToString();
 
         void WriteList(IEnumerable<IWritable> list);
+        void WriteIndent();
+        void AccessToken();
+        void WordDelimiter();
+        void NewLine();
     }
 
-    public class Writer : IWriter
+    internal sealed class Writer : IWriter
     {
         private readonly StringBuilder builder = new StringBuilder();
         private int indent = 0;
@@ -129,9 +132,24 @@ namespace TypeScriptGenerator.Writer
             return builder.ToString();
         }
 
-        private void WriteIndent()
+        public void WriteIndent()
         {
             builder.Append(string.Join(string.Empty, Enumerable.Repeat(Constants.IndentChar, indent)));
+        }
+
+        public void AccessToken()
+        {
+            builder.Append(Constants.AccessToken);
+        }
+
+        public void WordDelimiter()
+        {
+            builder.Append(Constants.WordDelimiter);
+        }
+
+        public void NewLine()
+        {
+            builder.AppendLine();
         }
     }
 }

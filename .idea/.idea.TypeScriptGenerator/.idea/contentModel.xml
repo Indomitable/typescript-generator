@@ -13,6 +13,7 @@
       <e p="TypeScriptGenerator" t="IncludeRecursive">
         <e p="TsModel" t="Include">
           <e p="BuildIn" t="Include">
+            <e p="TsBoolean.cs" t="Include" />
             <e p="TsNever.cs" t="Include" />
             <e p="TsNull.cs" t="Include" />
             <e p="TsNumber.cs" t="Include" />
@@ -20,6 +21,7 @@
             <e p="TsUndefined.cs" t="Include" />
             <e p="TsVoid.cs" t="Include" />
           </e>
+          <e p="TsEnum.cs" t="Include" />
           <e p="TsField.cs" t="Include" />
           <e p="TsGenericArgument.cs" t="Include" />
           <e p="TsIndexProperty.cs" t="Include" />
@@ -28,9 +30,12 @@
           <e p="TsMethod.cs" t="Include" />
           <e p="TsType.cs" t="Include" />
         </e>
+        <e p="TypeScriptGenerator.cs" t="Include" />
         <e p="TypeScriptGenerator.csproj" t="IncludeRecursive" />
+        <e p="TypeScriptGeneratorBuilder.cs" t="Include" />
         <e p="Writer" t="Include">
           <e p="Constants.cs" t="Include" />
+          <e p="IEntity.cs" t="Include" />
           <e p="IWritable.cs" t="Include" />
           <e p="Writer.cs" t="Include" />
         </e>

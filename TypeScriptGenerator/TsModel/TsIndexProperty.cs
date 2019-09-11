@@ -2,7 +2,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    public class TsIndexProperty: IWritable
+    internal sealed class TsIndexProperty: IWritable
     {
         public TsField Key { get; set; }
         public TsType Value { get; set; }

@@ -2,7 +2,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel.BuildIn
 {
-    public class TsNumber: TsType
+    internal sealed class TsNumber: TsType
     {
         public override void Write(IWriter writer)
         {

@@ -1,6 +1,6 @@
 namespace TypeScriptGenerator.Writer
 {
-    public static class Constants
+    internal static class Constants
     {
         public static readonly string ListSeparator = ", ";
         public static readonly string TypeDeclarator = ": ";
@@ -14,6 +14,8 @@ namespace TypeScriptGenerator.Writer
         public static readonly string StartList = "[";
         public static readonly string EndList = "]";
         public static readonly string OptionalIndicator = "?";
+        public static readonly string AccessToken = ".";
+        public static readonly string WordDelimiter = " ";
         public static readonly char IndentChar = '\t';
     }
 }

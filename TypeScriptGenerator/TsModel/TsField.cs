@@ -3,7 +3,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    public class TsField: IWritable
+    internal sealed class TsField: IWritable
     {
         public TsType FieldType { get; set; }
         public string Name { get; set; }

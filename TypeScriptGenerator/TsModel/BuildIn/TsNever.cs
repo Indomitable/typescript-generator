@@ -2,8 +2,11 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel.BuildIn
 {
-    internal sealed class TsNever: TsType
+    public sealed class TsNever: TsType
     {
+        private static TsNever instance;
+        public static TsNever Instance => instance ?? (instance = new TsNever());
+
         public override void Write(IWriter writer)
         {
             writer.Write("never");

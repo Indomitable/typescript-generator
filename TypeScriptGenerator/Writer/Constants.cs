@@ -17,5 +17,7 @@ namespace TypeScriptGenerator.Writer
         public static readonly string AccessToken = ".";
         public static readonly string WordDelimiter = " ";
         public static readonly char IndentChar = '\t';
+        public static readonly string UnionDelimiter = " | ";
+        public static readonly string IntersectDelimiter = " & ";
     }
 }

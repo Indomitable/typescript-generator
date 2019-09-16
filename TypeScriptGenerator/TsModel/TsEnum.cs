@@ -2,7 +2,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    internal sealed class TsEnum: TsType
+    public sealed class TsEnum: TsType
     {
         public override void Write(IWriter writer)
         {

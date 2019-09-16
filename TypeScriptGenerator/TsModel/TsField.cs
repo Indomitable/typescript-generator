@@ -3,8 +3,15 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    internal sealed class TsField: IWritable
+    public sealed class TsField: IWritable
     {
+        public TsField(string name, TsType type, bool isOptional = false)
+        {
+            Name = name;
+            FieldType = type;
+            IsOptional = isOptional;
+        }
+
         public TsType FieldType { get; set; }
         public string Name { get; set; }
         public bool IsOptional { get; set; }

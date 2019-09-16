@@ -2,7 +2,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    internal abstract class TsType: IWritable
+    public abstract class TsType: IWritable
     {
         public string Name { get; set; }
         public string Module { get; set; }

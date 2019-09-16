@@ -2,10 +2,15 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    internal sealed class TsIndexProperty: IWritable
+    public sealed class TsIndexProperty: IWritable
     {
-        public TsField Key { get; set; }
-        public TsType Value { get; set; }
+        public TsIndexProperty(TsField key, TsType value)
+        {
+            Key = key;
+            Value = value;
+        }
+        public TsField Key { get; }
+        public TsType Value { get; }
         public void Write(IWriter writer)
         {
             writer.StartList();

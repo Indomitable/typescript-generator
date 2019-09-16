@@ -26,6 +26,8 @@ namespace TypeScriptGenerator.Writer
         void AccessToken();
         void WordDelimiter();
         void NewLine();
+        void WriteUnion(IEnumerable<IWritable> union);
+        void WriteIntersection(IEnumerable<IWritable> intersection);
     }
 
     internal sealed class Writer : IWriter
@@ -36,14 +38,14 @@ namespace TypeScriptGenerator.Writer
         
         public Writer()
         {
-            
+
         }
 
         public void Write(string statement)
         {
             builder.Append(statement);
         }
-        
+
         public void WriteName(string name, bool isOptional)
         {
             builder.Append(name);
@@ -107,26 +109,19 @@ namespace TypeScriptGenerator.Writer
 
         public void WriteList(IEnumerable<IWritable> list)
         {
-            using (var enumerator = list.GetEnumerator())
-            {
-                if (enumerator.MoveNext())
-                {
-                    while(true)
-                    {
-                        enumerator.Current.Write(this);
-                        if (enumerator.MoveNext())
-                        {
-                            Write(Constants.ListSeparator);
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
+            ConcatinateWritables(list, Constants.ListSeparator);
         }
-        
+
+        public void WriteUnion(IEnumerable<IWritable> union)
+        {
+            ConcatinateWritables(union, Constants.UnionDelimiter);
+        }
+
+        public void WriteIntersection(IEnumerable<IWritable> intersection)
+        {
+            ConcatinateWritables(intersection, Constants.IntersectDelimiter);
+        }
+
         public override string ToString()
         {
             return builder.ToString();
@@ -150,6 +145,28 @@ namespace TypeScriptGenerator.Writer
         public void NewLine()
         {
             builder.AppendLine();
+        }
+
+        private void ConcatinateWritables(IEnumerable<IWritable> writables, string concatChar)
+        {
+            using (var enumerator = writables.GetEnumerator())
+            {
+                if (enumerator.MoveNext())
+                {
+                    while(true)
+                    {
+                        enumerator.Current?.Write(this);
+                        if (enumerator.MoveNext())
+                        {
+                            Write(concatChar);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

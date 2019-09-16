@@ -3,7 +3,7 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel
 {
-    internal sealed class TsInterface: TsInlineInterface, IEntity
+    public sealed class TsInterface: TsInlineInterface, IEntity
     {
         public TsInterface()
         {

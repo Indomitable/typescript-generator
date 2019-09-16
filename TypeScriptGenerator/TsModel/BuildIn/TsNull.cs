@@ -2,8 +2,11 @@ using TypeScriptGenerator.Writer;
 
 namespace TypeScriptGenerator.TsModel.BuildIn
 {
-    internal sealed class TsNull: TsType
+    public sealed class TsNull: TsType
     {
+        private static TsNull instance;
+        public static TsNull Instance => instance ?? (instance = new TsNull());
+
         public override void Write(IWriter writer)
         {
             writer.Write("null");
